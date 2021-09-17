@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "static-server": "static-server",
-    "static": "cd dist/envjs && static-server --port=9081"
+    "static": "cd dist/envjs && static-server --port=9081",
+    "build:static": "npm run build && npm run static"
   },
   "private": true,
   "dependencies": {
