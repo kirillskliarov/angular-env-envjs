@@ -3,8 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {globalProvider} from "./core/providers/global-provider";
-import {environmentProvider} from "./core/providers/environment-provider";
+import {ENVIRONMENT_TOKEN} from "./core/tokens/environment-token";
+import {GLOBAL_TOKEN} from "./core/tokens/global-token";
+import {Environment} from "./core/interfaces/environment";
+
+declare global {
+  interface Window {
+    __env: Environment;
+  }
+}
 
 @NgModule({
   declarations: [
@@ -15,8 +22,11 @@ import {environmentProvider} from "./core/providers/environment-provider";
     AppRoutingModule,
   ],
   providers: [
-    globalProvider,
-    environmentProvider,
+    {
+      provide: ENVIRONMENT_TOKEN,
+      useFactory: (global: Window) => global.__env,
+      deps: [GLOBAL_TOKEN],
+    },
   ],
   bootstrap: [AppComponent]
 })
