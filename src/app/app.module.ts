@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ENVIRONMENT_TOKEN} from "./core/tokens/environment-token";
 import {GLOBAL_TOKEN} from "./core/tokens/global-token";
@@ -19,7 +18,6 @@ declare global {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
   ],
   providers: [
     {
