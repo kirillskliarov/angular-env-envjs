@@ -36,7 +36,8 @@
           }
         ],
         "object-curly-spacing": [
-          "error"
+          "error",
+          "always"
         ]
       }
     },
